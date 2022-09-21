@@ -1,5 +1,5 @@
 # start by pulling the python image
-FROM python:3.8-alpine
+FROM python:3.6-alpine
 
 # copy the requirements file into the image
 COPY ./requirements.txt /app/requirements.txt
@@ -16,7 +16,5 @@ RUN pip install -r requirements.txt
 # copy every content from the local file to the image
 COPY . /app
 
-# configure the container to run in an executed manner
-ENTRYPOINT [ "python" ]
-
-CMD ["server.py" ]
+EXPOSE 5000
+CMD ["python", "server.py"]
