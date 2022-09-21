@@ -7,8 +7,7 @@ COPY ./requirements.txt /app/requirements.txt
 # switch working directory
 WORKDIR /app
 
-RUN apk update && \
-    apk add --virtual build-deps gcc python-dev musl-dev
+RUN apk update && apk add --virtual build-deps gcc python-dev musl-dev
 
 RUN pip install --upgrade pip
 # install the dependencies and packages in the requirements file
