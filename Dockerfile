@@ -7,11 +7,8 @@ RUN
 # switch working directory
 WORKDIR /app
 
-RUN apk add --no-cache gcc
-
-RUN apk add --no-cache gcc
-
-RUN apk update && apk add python-devel
+RUN apk update && \
+    apk add --virtual build-deps gcc python-dev musl-dev
 
 RUN pip install --upgrade pip
 # install the dependencies and packages in the requirements file
