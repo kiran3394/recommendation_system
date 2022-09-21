@@ -13,6 +13,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score, classification_report
+from IPython import get_ipython
 
 import matplotlib.pyplot as plt
 get_ipython().run_line_magic('matplotlib', 'inline')
