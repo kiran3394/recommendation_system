@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Home Page</title>
+    </head>
+
+    <body>
+        <h1> Product Recommendation System</h1>
+        <form action= "" method= 'post'>
+            <p>Enter username to get recommended products</p>
+            <p><input type= "textarea" name= "username"> </p>
+            <p><input type= "submit" value= "submit"> </p>
+        </form>
+     
+        {% if product_list and product_list|length > 0 %}
+        <h3> Top 20 products recommended</h3>
+        <ul>
+            {% for name in product_list %}
+                <li>{{ name }}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% if recommended_product_list and recommended_product_list|length > 0 %}
+        <h3> Top 20 products recommended</h3>
+        <ul>
+            {% for name in recommended_product_list %}
+                <li>{{ name }}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </body>
+    
+    <br>
+    <br>
+</html>
