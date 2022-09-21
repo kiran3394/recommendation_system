@@ -1,13 +1,19 @@
 from flask import Flask, render_template, request
 import pickle
 import pandas as pd 
-from model import *
 
 app = Flask(__name__)
 
 recommendation_model = pickle.load(open('recommendation_system_model.pkl','rb'))
 sentiment_analysis_model=pickle.load(open('sentiment_analysis_model.pkl','rb'))
 tf_idf_vect_model=pickle.load(open('tf_idf_model.pkl','rb'))
+
+def extract_features(document,word_features):
+    document_words = set(document)
+    features = {}
+    for word in word_features:
+        features['contains(%s)' % word] = (word in document_words)
+    return features
 
 
 @app.route("/",methods=['POST','GET'])
